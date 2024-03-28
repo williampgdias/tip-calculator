@@ -1,17 +1,7 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,700;1,700&display=swap');
 
-:root {
-    --body: hsl(184, 14%, 56%);
-
-    --bg-btn: hsl(183, 100%, 15%);
-    --bg-input-amount: hsl(185, 41%, 84%);
-    --bg-text-amount: hsl(189, 41%, 97%);
-    --bg-box: hsl(0, 0%, 100%);
-    --btn-input-icon-text: hsl(186, 14%, 43%);
-    --btn-hover: hsl(172, 67%, 45%);
-}
-
+/* DEFAULT STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -27,8 +17,60 @@ body {
     font-size: 1.5rem;
     font-family: 'Space Mono', monospace;
     font-weight: 700;
-    background-color: var(--body);
+    background-color: #c5e4e7;
 }
+
+.grid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: auto auto;
+}
+
+.input-box.icon-dolar {
+    background: url('../img/icon-dollar.svg') no-repeat;
+}
+
+.input-box.icon-user {
+    background: url('../img/icon-person.svg') no-repeat;
+}
+
+.input-box.icon-user,
+.input-box.icon-dolar {
+    background-size: 15px;
+    background-color: #f2f8fc;
+    background-position: 1rem;
+}
+
+.input-box {
+    padding: 10px;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    text-align: right;
+    font-size: 1.6rem;
+    color: #02474a;
+}
+
+.input-box::placeholder {
+    color: #a1bab9;
+    font-family: 'Space Mono', monospace;
+}
+
+.bill-div .bill,
+.number-people-div .number-people,
+.tip-div .select-tip {
+    font-size: 0.9rem;
+    color: #687a7c;
+}
+
+.symbol-dolar,
+.symbol-person {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+}
+
+/* FOOTER */
 .attribution {
     padding-bottom: 2rem;
     font-size: 1rem;
@@ -37,4 +79,41 @@ body {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+/* Main-div */
+.main-div {
+    margin-top: 150px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+/* col-1 */
+.tip-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+
+.btn-tip-amount {
+    background-color: #00474b;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px 0px;
+    color: #f3fbff;
+    width: 140px;
+    cursor: pointer;
+}
+
+.custom-tip {
+    background-color: #f3f8fa;
+    color: #496a69;
+}
+
+/* col-2 */
+.amount-total {
+    background: #02474a;
+    border-radius: 20px;
+    padding: 40px 30px;
 }
