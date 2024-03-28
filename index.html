@@ -16,34 +16,38 @@
 
 <body>
 
-    <main class="main-div">
-        <div class="bill-form">
-            <p class="bill">Bill</p>
-            <form>
-                <input type="text">
-                <span class="symbol-dolar"><img src="./assets/img/icon-dolar.svg" alt="Icon of a dolar symbol"></span>
-            </form>
-        </div>
+    <main class="main-div grid">
+        <div class="col-1">
+            <div class="bill-div">
+                <p class="bill">Bill</p>
+                <form>
+                    <!-- <span class="symbol-dolar"><img src="./assets/img/icon-dollar.svg"
+                            alt="Icon of a dolar symbol"></span> -->
+                    <input type="text" class="input-box icon-dolar" placeholder="0">
+                </form>
+            </div>
 
-        <div class="tip-div">
-            <p class="select-tip">Select Tip %</p>
-            <a class="btn-tip-amount">5%</a>
-            <a class="btn-tip-amount">10%</a>
-            <a class="btn-tip-amount">15%</a>
-            <a class="btn-tip-amount">25%</a>
-            <a class="btn-tip-amount">50%</a>
-            <a class="btn-tip-amount custom-tip">Custom</a>
-        </div>
+            <div class="tip-div">
+                <p class="select-tip">Select Tip %</p>
+                <div class="tip-grid">
+                    <a class="btn-tip-amount">5%</a>
+                    <a class="btn-tip-amount">10%</a>
+                    <a class="btn-tip-amount">15%</a>
+                    <a class="btn-tip-amount">25%</a>
+                    <a class="btn-tip-amount">50%</a>
+                    <a class="btn-tip-amount custom-tip">Custom</a>
+                </div>
+            </div>
 
-        <div class="number-people-div">
-            Number of People
-            <form>
-                <input type="text">
-                <span class="symbol-person"><img src="./assets/img/icon-person.svg" alt="Icon of a person"></span>
-            </form>
+            <div class="number-people-div">
+                <p class="number-people">Number of People</p>
+                <form>
+                    <input type="text" class="input-box icon-user" placeholder="0">
+                    <!-- <span class="symbol-person"><img src="./assets/img/icon-person.svg" alt="Icon of a person"></span> -->
+                </form>
+            </div>
         </div>
-
-        <div class="amount-total">
+        <div class="amount-total col-2">
             <p>
                 Tip Amount
                 <span class="amount-person">/ person</span>
