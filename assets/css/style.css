@@ -176,4 +176,42 @@ input[type='number'] {
     background: #02474a;
     border-radius: 20px;
     padding: 40px 30px;
+    color: #fff;
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.amount-text {
+    font-size: 0.9rem;
+}
+
+.amount-person {
+    font-size: 0.6rem;
+    color: #609396;
+}
+
+.tip-amount-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tip-amount-div span {
+    color: #2cc1af;
+    font-size: 2.5rem;
+}
+
+.tip-amount-div:nth-child(2) {
+    padding-top: 50px;
+}
+
+.btn-reset {
+    background-color: #27c2ad;
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    text-align: center;
+    color: #004048;
+    text-transform: uppercase;
 }
