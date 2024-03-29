@@ -17,6 +17,8 @@
 <body>
 
     <main class="main-div grid">
+
+        <!-- Column 1 -->
         <div class="col-1">
             <div class="bill-div">
                 <p class="bill">Bill</p>
@@ -37,24 +39,33 @@
 
             <div class="number-people-div">
                 <p class="number-people">Number of People</p>
-                <form>
-                    <input type="number" class="input-box icon-user" placeholder="0">
-                    <!-- <span class="symbol-person"><img src="./assets/img/icon-person.svg" alt="Icon of a person"></span> -->
-                </form>
+                <input type="number" class="input-box icon-user" placeholder="0">
             </div>
         </div>
+
+        <!-- Column 2 -->
         <div class="amount-total col-2">
-            <p>
-                Tip Amount
-                <span class="amount-person">/ person</span>
-            </p>
+            <div class="amount-divs">
+                <div class="tip-amount-div">
+                    <div>
+                        <p class="amount-text">Tip Amount</p>
+                        <p class="amount-person">/ person</p>
+                    </div>
+                    <span>$4.27</span>
+                </div>
 
-            <p>
-                Total
-                <span class="amount-person">/ person</span>
-            </p>
+                <div class="tip-amount-div">
+                    <div>
+                        <p class="amount-text">Total</p>
+                        <p class="amount-person">/ person</p>
+                    </div>
+                    <span>$0.00</span>
+                </div>
+            </div>
 
-            <a class="btn-reset">Reset</a>
+            <div class="btn-reset">
+                <a class="btn-reset">Reset</a>
+            </div>
         </div>
     </main>
 
