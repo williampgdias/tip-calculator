@@ -36,9 +36,10 @@ body {
 
 .input-box.icon-user,
 .input-box.icon-dolar {
-    background-size: 15px;
+    background-size: 12px;
     background-color: #f2f8fc;
     background-position: 1rem;
+    font-family: 'Space Mono', monospace;
 }
 
 .input-box {
@@ -49,6 +50,14 @@ body {
     text-align: right;
     font-size: 1.6rem;
     color: #02474a;
+    border-radius: 4px;
+    border: 2px solid #f2f8fc;
+    outline: none;
+}
+
+.input-box:hover {
+    border: 2px solid #9ee8e0;
+    transition: all 300ms ease-out;
 }
 
 .input-box::placeholder {
@@ -90,25 +99,76 @@ body {
 }
 
 /* col-1 */
+.bill {
+    padding-bottom: 10px;
+}
+
 .tip-grid {
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 20px;
+    align-items: center;
 }
 
 .btn-tip-amount {
     background-color: #00474b;
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
-    padding: 10px 0px;
+    height: 45px;
+    font-size: 1.5rem;
     color: #f3fbff;
     width: 140px;
     cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    border: none;
+}
+
+.btn-tip-amount:hover {
+    color: #00474b;
+    background-color: #9ee8e0;
+    transition: all 300ms ease-out;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
 }
 
 .custom-tip {
     background-color: #f3f8fa;
     color: #496a69;
+    text-align: right;
+    font-size: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    padding: 0px 10px;
+    border: none;
+    width: 140px;
+    height: 45px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #f3f8fa;
+}
+.custom-tip::placeholder {
+    text-align: center;
+    padding-right: 0px;
+}
+
+.custom-tip:hover {
+    border: 2px solid #9ee8e0;
+}
+
+.select-tip,
+.number-people {
+    padding-top: 40px;
+    padding-bottom: 15px;
 }
 
 /* col-2 */
