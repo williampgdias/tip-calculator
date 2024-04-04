@@ -29,3 +29,19 @@ function handleNumericInput(e) {
         pressedNumber = pressedNumber.slice(0, -1);
     }
 }
+
+/**
+ * Removes a specific class from a group of buttons.
+ *
+ * This function iterates over a collection of buttons and removes the specified class
+ * from each button. It is typically used to reset the visual state of buttons, for example,
+ * removing an 'active' class after a certain action.
+ *
+ * @returns {void} This function does not return a value, but it modifies the classes of the buttons.
+ */
+
+function resetButtons() {
+    numberOfTips.forEach((button) => {
+        button.classList.remove('btn-tip-amount-active');
+    });
+}
