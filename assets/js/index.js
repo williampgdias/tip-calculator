@@ -150,3 +150,24 @@ function displayTipAmountPerPerson(tipPercentage) {
 
     const print = printTotalPerPersonByIndex(pressedIndex);
 }
+
+/**
+ * Prints the total bill per person based on the provided tip index.
+ * @param {number} index The index of the selected tip option.
+ * @returns {void} This function doesn't directly return a value, but prints the total bill per person to the console.
+ */
+function printTotalPerPersonByIndex(index) {
+    if (index == 0) {
+        return calculateTotalPerPerson(0);
+    } else if (index === 1) {
+        return calculateTotalPerPerson(0.05);
+    } else if (index === 2) {
+        return calculateTotalPerPerson(0.1);
+    } else if (index === 3) {
+        return calculateTotalPerPerson(0.15);
+    } else if (index === 4) {
+        return calculateTotalPerPerson(0.25);
+    } else if (index === 5) {
+        return calculateTotalPerPerson(0.5);
+    }
+}
