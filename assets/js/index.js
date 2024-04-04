@@ -110,8 +110,11 @@ function calculateTotalPerPerson(tipPercentage) {
     let tipAmount = totalBeforeTip * tipPercentage;
     let totalWithTip = totalBeforeTip + tipAmount;
     let totalPerPerson = totalWithTip / numberOfPeople.value;
+    let tipAmountPerPerson = tipAmount / numberOfPeople.value;
 
-    displayIncrementalTip(tipAmount);
+    displayIncrementalTip(tipAmountPerPerson, totalPerPerson);
+
+    console.log(totalPerPerson);
 
     return totalPerPerson;
 }
@@ -125,18 +128,29 @@ function calculateTotalPerPerson(tipPercentage) {
  * until reaching the total tip value specified. If the tip value is 0, it displays "$0.00".
  * The tip amount is updated every 5 milliseconds.
  */
-function displayIncrementalTip(tipValue) {
+function displayIncrementalTip(tipValue, billPerPerson) {
     let amountTipPerPerson = document.getElementById('tipAmountPerPerson');
-    let count = 0;
+    let totalBillPerPerson = document.getElementById('totalBillPerPerson');
+    let countTip = 0;
+    let countBill = 0;
 
-    setInterval(function () {
-        if (count < parseFloat(tipValue.toFixed(2))) {
-            count += 0.01;
-            amountTipPerPerson.innerHTML = `$${count.toFixed(2)}`;
-        } else if (tipValue == 0) {
-            amountTipPerPerson.innerHTML = '$0.00';
+    let intervalTip = setInterval(function () {
+        if (countTip < parseFloat(tipValue.toFixed(2))) {
+            countTip += 0.01;
+            amountTipPerPerson.innerHTML = `$${countTip.toFixed(2)}`;
+        } else {
+            clearInterval(intervalTip);
         }
     }, 5);
+
+    let intervalBill = setInterval(function () {
+        if (countBill < parseFloat(billPerPerson.toFixed(2))) {
+            countBill += 0.01;
+            totalBillPerPerson.innerHTML = `$${countBill.toFixed(2)}`;
+        } else {
+            clearInterval(intervalBill);
+        }
+    });
 }
 
 /**
