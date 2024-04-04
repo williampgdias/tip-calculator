@@ -171,3 +171,11 @@ function printTotalPerPersonByIndex(index) {
         return calculateTotalPerPerson(0.5);
     }
 }
+
+// Iterates over each button in the "numberOfTips" array and adds an event listener to it.
+// When a button is clicked, it invokes the "handleTipButtonClick" function with the index of the button.
+numberOfTips.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        handleTipButtonClick(index);
+    });
+});
