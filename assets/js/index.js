@@ -138,6 +138,8 @@ function displayIncrementalTip(tipValue, billPerPerson) {
         if (countTip < parseFloat(tipValue.toFixed(2))) {
             countTip += 0.01;
             amountTipPerPerson.innerHTML = `$${countTip.toFixed(2)}`;
+        } else if (tipValue == 0) {
+            amountTipPerPerson.innerHTML = '$0.00';
         } else {
             clearInterval(intervalTip);
         }
