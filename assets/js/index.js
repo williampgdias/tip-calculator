@@ -39,7 +39,6 @@ function handleNumericInput(e) {
  *
  * @returns {void} This function does not return a value, but it modifies the classes of the buttons.
  */
-
 function resetButtons() {
     numberOfTips.forEach((button) => {
         button.classList.remove('btn-tip-amount-active');
@@ -56,10 +55,40 @@ function resetButtons() {
  * @param {number} index The index of the tip button clicked.
  * @returns {void} This function does not return a value, but it modifies the visual state of the buttons.
  */
-
 function handleTipButtonClick(index) {
     resetButtons();
     numberOfTips[index].classList.add('btn-tip-amount-active');
     pressedIndex = index;
     console.log('Apertei o', numberOfTips[index].textContent);
+}
+
+/**
+ * Handles error display and styling for input fields.
+ *
+ * This function checks if the total bill input field or the number of people input field
+ * is empty or equals '0'. If either of them is empty or '0', it displays an error message
+ * and changes the border color of the corresponding input field to indicate an error.
+ * Otherwise, it hides the error message and resets the border color of the input field.
+ *
+ * @returns {void} This function does not return a value, but it modifies the display and styling of error messages and input fields.
+ */
+function handleErrorText() {
+    const totalBill = document.getElementById('totalBillInput');
+    if (!totalBill.value || totalBill.value == '0') {
+        document.getElementById('errorTextBill').style.display = 'block';
+        totalBill.style.borderColor = '#b58070';
+    } else {
+        document.getElementById('errorTextBill').style.display = 'none';
+        totalBill.style.borderColor = '#f2f8fc';
+    }
+
+    if (!numberOfPeople.value || numberOfPeople.value == '0') {
+        document.getElementById('errorTextNumberOfPeople').style.display =
+            'block';
+        numberOfPeople.style.borderColor = '#b58070';
+    } else {
+        document.getElementById('errorTextNumberOfPeople').style.display =
+            'none';
+        numberOfPeople.style.borderColor = '#f2f8fc';
+    }
 }
