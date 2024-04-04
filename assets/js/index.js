@@ -115,3 +115,26 @@ function calculateTotalPerPerson(tipPercentage) {
 
     return totalPerPerson;
 }
+
+/**
+ * Displays the tip amount incrementally on the web page.
+ *
+ * @param {number} tipValue - The total tip value to be displayed.
+ *
+ * This function gradually displays the tip amount on the web page in increments of $0.01
+ * until reaching the total tip value specified. If the tip value is 0, it displays "$0.00".
+ * The tip amount is updated every 5 milliseconds.
+ */
+function displayIncrementalTip(tipValue) {
+    let amountTipPerPerson = document.getElementById('tipAmountPerPerson');
+    let count = 0;
+
+    setInterval(function () {
+        if (count < parseFloat(tipValue.toFixed(2))) {
+            count += 0.01;
+            amountTipPerPerson.innerHTML = `$${count.toFixed(2)}`;
+        } else if (tipValue == 0) {
+            amountTipPerPerson.innerHTML = '$0.00';
+        }
+    }, 5);
+}
