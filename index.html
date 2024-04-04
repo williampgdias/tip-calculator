@@ -21,25 +21,28 @@
         <!-- Column 1 -->
         <div class="col-1">
             <div class="bill-div">
+
                 <p class="bill">Bill</p>
-                <input type="number" class="input-box icon-dolar" placeholder="0">
+                <span class="zero-amount" id="errorTextBill">Can't be zero</span>
+                <input type="number" class="input-box icon-dolar total-bill" id="totalBillInput" placeholder="0">
             </div>
 
             <div class="tip-div">
                 <p class="select-tip">Select Tip %</p>
                 <div class="tip-grid">
-                    <button class="btn-tip-amount">5%</button>
-                    <button class="btn-tip-amount">10%</button>
-                    <button class="btn-tip-amount">15%</button>
-                    <button class="btn-tip-amount">25%</button>
-                    <button class="btn-tip-amount">50%</button>
-                    <input type="number" class="custom-tip" placeholder="Custom">
+                    <button class="btn-tip-amount tip-amount">0%</button>
+                    <button class="btn-tip-amount tip-amount">5%</button>
+                    <button class="btn-tip-amount tip-amount">10%</button>
+                    <button class="btn-tip-amount tip-amount">15%</button>
+                    <button class="btn-tip-amount tip-amount">25%</button>
+                    <button class="btn-tip-amount tip-amount">50%</button>
                 </div>
             </div>
 
             <div class="number-people-div">
                 <p class="number-people">Number of People</p>
-                <input type="number" class="input-box icon-user" placeholder="0">
+                <span class="zero-amount" id="errorTextNumberOfPeople">Can't be zero</span>
+                <input type="number" class="input-box icon-user number-of-people" id="totalPeopleInput" placeholder="0">
             </div>
         </div>
 
@@ -51,7 +54,7 @@
                         <p class="amount-text">Tip Amount</p>
                         <p class="amount-person">/ person</p>
                     </div>
-                    <span>$4.27</span>
+                    <span id="tipAmountPerPerson">$0.00</span>
                 </div>
 
                 <div class="tip-amount-div">
@@ -59,12 +62,17 @@
                         <p class="amount-text">Total</p>
                         <p class="amount-person">/ person</p>
                     </div>
-                    <span>$0.00</span>
+                    <span class="totalBillPerPerson">$0.00</span>
                 </div>
             </div>
 
-            <div class="btn-reset">
-                <a class="btn-reset">Reset</a>
+            <div class="btn-div">
+                <div>
+                    <a class="btn-send btn" id="btnSend">Send</a>
+                </div>
+                <div>
+                    <a class="btn-reset btn" id="btnReset">Reset</a>
+                </div>
             </div>
         </div>
     </main>
