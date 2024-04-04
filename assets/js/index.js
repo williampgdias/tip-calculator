@@ -138,3 +138,15 @@ function displayIncrementalTip(tipValue) {
         }
     }, 5);
 }
+
+/**
+ * Calculates the tipAmount value and displays it on the screen as tipAmount per person.
+ *
+ * @param {number} tipPercentage The percentage of tip to be applied to the total bill.
+ * @returns {void} This function doesn't directly return a value, but displays the tipAmount per person on the screen.
+ */
+function displayTipAmountPerPerson(tipPercentage) {
+    const tipAmount = calculateTotalPerPerson(tipPercentage);
+
+    const print = printTotalPerPersonByIndex(pressedIndex);
+}
