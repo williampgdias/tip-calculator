@@ -45,3 +45,21 @@ function resetButtons() {
         button.classList.remove('btn-tip-amount-active');
     });
 }
+
+/**
+ * Handles the click event of a tip button.
+ *
+ * This function takes an index as a parameter representing the position of the tip button in the array.
+ * It resets the visual state of all tip buttons, adds an 'active' class to the clicked button,
+ * updates the 'pressedIndex' variable, and logs a message indicating the button that was clicked.
+ *
+ * @param {number} index The index of the tip button clicked.
+ * @returns {void} This function does not return a value, but it modifies the visual state of the buttons.
+ */
+
+function handleTipButtonClick(index) {
+    resetButtons();
+    numberOfTips[index].classList.add('btn-tip-amount-active');
+    pressedIndex = index;
+    console.log('Apertei o', numberOfTips[index].textContent);
+}
