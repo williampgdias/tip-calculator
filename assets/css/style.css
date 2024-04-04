@@ -99,8 +99,30 @@ body {
 }
 
 /* col-1 */
+.bill-div,
+.number-people-div {
+    position: relative;
+}
+
+.zero-amount {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 0.9rem;
+    color: #b58070;
+}
+
+#errorTextBill,
+#errorTextNumberOfPeople {
+    display: none;
+}
+
 .bill {
     padding-bottom: 10px;
+}
+
+.tip-div {
+    padding-bottom: 40px;
 }
 
 .tip-grid {
@@ -127,6 +149,11 @@ body {
     color: #00474b;
     background-color: #9ee8e0;
     transition: all 300ms ease-out;
+}
+
+.btn-tip-amount-active {
+    background-color: #26c2ac;
+    color: #00474b;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -165,10 +192,13 @@ input[type='number'] {
     border: 2px solid #9ee8e0;
 }
 
-.select-tip,
-.number-people {
+.select-tip {
     padding-top: 40px;
     padding-bottom: 15px;
+}
+
+.number-people {
+    padding-bottom: 10px;
 }
 
 /* col-2 */
@@ -206,12 +236,26 @@ input[type='number'] {
     padding-top: 50px;
 }
 
-.btn-reset {
-    background-color: #27c2ad;
+.btn {
+    background-color: #f2f8fc;
     width: 100%;
     display: block;
     border-radius: 4px;
     text-align: center;
     color: #004048;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-send.btn {
+    background-color: #27c2ad;
+    margin-bottom: 15px;
+}
+
+.btn-send.btn:hover {
+    background-color: #9ee8e0;
+}
+
+.btn-reset.btn:hover {
+    background-color: #9ee8e0;
 }
