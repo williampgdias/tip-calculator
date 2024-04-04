@@ -184,3 +184,9 @@ numberOfTips.forEach((button, index) => {
 // Calls the handleNumericInput function to validate and process numeric entries,
 // including the 'Backspace' key.
 amountBill[0].addEventListener('keydown', handleNumericInput);
+
+// Listens for the 'click' event on the send button to handle error messages and print total bill per person.
+btnSend.addEventListener('click', function () {
+    handleErrorText();
+    printTotalPerPersonByIndex(pressedIndex);
+});
