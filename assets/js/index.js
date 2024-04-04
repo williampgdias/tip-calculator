@@ -179,3 +179,8 @@ numberOfTips.forEach((button, index) => {
         handleTipButtonClick(index);
     });
 });
+
+// Listens for the 'keydown' event on the amountBill input field to handle numeric input.
+// Calls the handleNumericInput function to validate and process numeric entries,
+// including the 'Backspace' key.
+amountBill[0].addEventListener('keydown', handleNumericInput);
