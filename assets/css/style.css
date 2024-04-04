@@ -62,6 +62,7 @@ body {
 
 .input-box::placeholder {
     color: #a1bab9;
+
     font-family: 'Space Mono', monospace;
 }
 
@@ -93,6 +94,8 @@ body {
 /* Main-div */
 .main-div {
     margin-top: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
     background-color: #fff;
     border-radius: 20px;
     padding: 50px;
@@ -102,6 +105,10 @@ body {
 .bill-div,
 .number-people-div {
     position: relative;
+}
+
+.col-1 {
+    max-width: 500px;
 }
 
 .zero-amount {
@@ -126,10 +133,9 @@ body {
 }
 
 .tip-grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 20px;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .btn-tip-amount {
@@ -139,7 +145,7 @@ body {
     height: 45px;
     font-size: 1.5rem;
     color: #f3fbff;
-    width: 140px;
+    width: 155px;
     cursor: pointer;
     font-family: 'Space Mono', monospace;
     border: none;
@@ -201,6 +207,7 @@ input[type='number'] {
 .tip-amount-div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .tip-amount-div span {
@@ -234,4 +241,166 @@ input[type='number'] {
 
 .btn-reset.btn:hover {
     background-color: #9ee8e0;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1000px) {
+    .btn-tip-amount {
+        width: 140px;
+    }
+    .main-div {
+        padding: 30px;
+    }
+    .grid {
+        gap: 30px;
+    }
+    .amount-total {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .tip-grid {
+        gap: 10px;
+    }
+    .btn-tip-amount {
+        width: 120px;
+        font-size: 1.3rem;
+        height: 40px;
+    }
+    .amount-text {
+        font-size: 0.75rem;
+    }
+    .tip-amount-div span {
+        font-size: 2rem;
+    }
+    .amount-total {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .amount-total {
+        height: 350px;
+    }
+    .input-box {
+        padding: 0;
+        padding-right: 5px;
+    }
+    .attribution {
+        font-size: 0.85rem;
+        padding-top: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .tip-grid {
+        justify-content: center;
+    }
+    .grid {
+        grid-template-columns: auto;
+        justify-items: center;
+    }
+    .tip-amount-div:nth-child(2) {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .btn-tip-amount {
+        width: 155px;
+        font-size: 1.2rem;
+    }
+    .amount-total {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .main-div {
+        padding: 15px;
+    }
+    .tip-grid {
+        gap: 7px;
+    }
+    .btn-tip-amount {
+        width: 130px;
+        height: 30px;
+        font-size: 1.1rem;
+    }
+    .bill-div .bill,
+    .number-people-div .number-people,
+    .tip-div .select-tip {
+        font-size: 0.75rem;
+    }
+    .input-box {
+        font-size: 1.3rem;
+    }
+    .input-box::placeholder {
+        font-size: 1.3rem;
+    }
+    .amount-text {
+        font-size: 0.75rem;
+    }
+    .tip-amount-div span {
+        font-size: 2rem;
+    }
+    .amount-total {
+        width: 400px;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .amount-total {
+        width: 350px;
+        justify-content: space-around;
+    }
+    .attribution {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .tip-amount-div span {
+        font-size: 1.7rem;
+    }
+    .btn {
+        font-size: 1.2rem;
+    }
+    .amount-total {
+        width: 250px;
+        padding: 0 20px;
+    }
+    .attribution {
+        font-size: 0.65rem;
+    }
+}
+
+@media screen and (max-width: 328px) {
+    .tip-grid {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .btn-tip-amount {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .amount-total {
+        width: 200px;
+    }
+    .btn {
+        font-size: 1rem;
+    }
+    .tip-amount-div span {
+        font-size: 1.3rem;
+    }
+    .amount-text {
+        font-size: 0.65rem;
+    }
+    .amount-person {
+        font-size: 0.55rem;
+    }
 }
