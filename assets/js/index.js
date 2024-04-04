@@ -92,3 +92,26 @@ function handleErrorText() {
         numberOfPeople.style.borderColor = '#f2f8fc';
     }
 }
+
+/**
+ * Calculates the total bill including tip and the bill per person.
+ *
+ * This function takes in the tip percentage as a parameter and calculates
+ * the total bill before tip, the tip amount, the total bill including tip,
+ * and finally the bill per person based on the total bill and the number
+ * of people. It assumes the variables 'pressedNumber' and 'numberOfPeople'
+ * are correctly set elsewhere in the code.
+ *
+ * @param {number} tipPercentage The percentage of tip to be applied to the total bill.
+ * @returns {number} The bill per person after including the tip.
+ */
+function calculateTotalPerPerson(tipPercentage) {
+    let totalBeforeTip = parseFloat(pressedNumber);
+    let tipAmount = totalBeforeTip * tipPercentage;
+    let totalWithTip = totalBeforeTip + tipAmount;
+    let totalPerPerson = totalWithTip / numberOfPeople.value;
+
+    displayIncrementalTip(tipAmount);
+
+    return totalPerPerson;
+}
