@@ -189,7 +189,7 @@ input[type='number'] {
     border-radius: 20px;
     padding: 40px 30px;
     color: #fff;
-    width: 380px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -254,9 +254,6 @@ input[type='number'] {
     .grid {
         gap: 30px;
     }
-    .amount-total {
-        width: 350px;
-    }
 }
 
 @media screen and (max-width: 950px) {
@@ -270,9 +267,6 @@ input[type='number'] {
     }
     .amount-text {
         font-size: 0.75rem;
-    }
-    .tip-amount-div span {
-        font-size: 2rem;
     }
     .amount-total {
         width: 300px;
@@ -311,7 +305,7 @@ input[type='number'] {
         font-size: 1.2rem;
     }
     .amount-total {
-        width: 450px;
+        width: 100%;
     }
 }
 
@@ -341,23 +335,6 @@ input[type='number'] {
     .amount-text {
         font-size: 0.75rem;
     }
-    .tip-amount-div span {
-        font-size: 2rem;
-    }
-    .amount-total {
-        width: 400px;
-        justify-content: space-around;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .amount-total {
-        width: 350px;
-        justify-content: space-around;
-    }
-    .attribution {
-        font-size: 0.75rem;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -366,10 +343,6 @@ input[type='number'] {
     }
     .btn {
         font-size: 1.2rem;
-    }
-    .amount-total {
-        width: 250px;
-        padding: 0 20px;
     }
     .attribution {
         font-size: 0.65rem;
