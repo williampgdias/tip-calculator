@@ -2,6 +2,9 @@ const amountBill = document.getElementsByClassName('total-bill');
 const numberOfPeople = document.getElementById('totalPeopleInput');
 const numberOfTips = document.querySelectorAll('.tip-amount');
 const btnSend = document.getElementById('btnSend');
+const btnReset = document.getElementById('btnReset');
+const amountTipPerPerson = document.getElementById('tipAmountPerPerson');
+const totalBillPerPerson = document.getElementById('totalBillPerPerson');
 
 // Declaring the default variables
 let pressedNumber = '';
@@ -59,7 +62,6 @@ function handleTipButtonClick(index) {
     resetButtons();
     numberOfTips[index].classList.add('btn-tip-amount-active');
     pressedIndex = index;
-    console.log('Apertei o', numberOfTips[index].textContent);
 }
 
 /**
@@ -129,30 +131,8 @@ function calculateTotalPerPerson(tipPercentage) {
  * The tip amount is updated every 5 milliseconds.
  */
 function displayIncrementalTip(tipValue, billPerPerson) {
-    let amountTipPerPerson = document.getElementById('tipAmountPerPerson');
-    let totalBillPerPerson = document.getElementById('totalBillPerPerson');
-    let countTip = 0;
-    let countBill = 0;
-
-    let intervalTip = setInterval(function () {
-        if (countTip < parseFloat(tipValue.toFixed(2))) {
-            countTip += 0.01;
-            amountTipPerPerson.innerHTML = `$${countTip.toFixed(2)}`;
-        } else if (tipValue == 0) {
-            amountTipPerPerson.innerHTML = '$0.00';
-        } else {
-            clearInterval(intervalTip);
-        }
-    }, 5);
-
-    let intervalBill = setInterval(function () {
-        if (countBill < parseFloat(billPerPerson.toFixed(2))) {
-            countBill += 0.01;
-            totalBillPerPerson.innerHTML = `$${countBill.toFixed(2)}`;
-        } else {
-            clearInterval(intervalBill);
-        }
-    });
+    amountTipPerPerson.innerHTML = `$${tipValue.toFixed(2)}`;
+    totalBillPerPerson.innerHTML = `$${billPerPerson.toFixed(2)}`;
 }
 
 /**
@@ -162,9 +142,9 @@ function displayIncrementalTip(tipValue, billPerPerson) {
  * @returns {void} This function doesn't directly return a value, but displays the tipAmount per person on the screen.
  */
 function displayTipAmountPerPerson(tipPercentage) {
-    const tipAmount = calculateTotalPerPerson(tipPercentage);
+    calculateTotalPerPerson(tipPercentage);
 
-    const print = printTotalPerPersonByIndex(pressedIndex);
+    printTotalPerPersonByIndex(pressedIndex);
 }
 
 /**
@@ -173,7 +153,7 @@ function displayTipAmountPerPerson(tipPercentage) {
  * @returns {void} This function doesn't directly return a value, but prints the total bill per person to the console.
  */
 function printTotalPerPersonByIndex(index) {
-    if (index == 0) {
+    if (index === 0) {
         return calculateTotalPerPerson(0);
     } else if (index === 1) {
         return calculateTotalPerPerson(0.05);
@@ -205,4 +185,14 @@ amountBill[0].addEventListener('keydown', handleNumericInput);
 btnSend.addEventListener('click', function () {
     handleErrorText();
     printTotalPerPersonByIndex(pressedIndex);
+});
+
+btnReset.addEventListener('click', function () {
+    amountBill[0].value = '';
+    numberOfPeople.value = '';
+
+    amountTipPerPerson.innerHTML = '$0.00';
+    totalBillPerPerson.innerHTML = '$0.00';
+
+    resetButtons();
 });
