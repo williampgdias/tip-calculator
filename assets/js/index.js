@@ -1,15 +1,13 @@
-const amountBill = document.getElementsByClassName('total-bill');
-const numberOfPeople = document.getElementById('totalPeopleInput');
+const amountBill = document.querySelector('#totalBillInput');
+const numberOfPeople = document.querySelector('#totalPeopleInput');
 const numberOfTips = document.querySelectorAll('.tip-amount');
-const btnSend = document.getElementById('btnSend');
-const btnReset = document.getElementById('btnReset');
-const amountTipPerPerson = document.getElementById('tipAmountPerPerson');
-const totalBillPerPerson = document.getElementById('totalBillPerPerson');
+const btnSend = document.querySelector('#btnSend');
+const btnReset = document.querySelector('#btnReset');
+const amountTipPerPerson = document.querySelector('#tipAmountPerPerson');
+const totalBillPerPerson = document.querySelector('#totalBillPerPerson');
 
 // Declaring the default variables
 let pressedNumber = '';
-let isPressed = false;
-let pressedBtnTips = numberOfTips;
 let pressedIndex = -1;
 
 /**
@@ -75,24 +73,18 @@ function handleTipButtonClick(index) {
  * @returns {void} This function does not return a value, but it modifies the display and styling of error messages and input fields.
  */
 function handleErrorText() {
-    const totalBill = document.getElementById('totalBillInput');
-    if (!totalBill.value || totalBill.value == '0') {
-        document.getElementById('errorTextBill').style.display = 'block';
-        totalBill.style.borderColor = '#b58070';
-    } else {
-        document.getElementById('errorTextBill').style.display = 'none';
-        totalBill.style.borderColor = '#f2f8fc';
-    }
+    const inputs = [
+        { element: amountBill, errorText: 'errorTextBill' },
+        { element: numberOfPeople, errorText: 'errorTextNumberOfPeople' },
+    ];
 
-    if (!numberOfPeople.value || numberOfPeople.value == '0') {
-        document.getElementById('errorTextNumberOfPeople').style.display =
-            'block';
-        numberOfPeople.style.borderColor = '#b58070';
-    } else {
-        document.getElementById('errorTextNumberOfPeople').style.display =
-            'none';
-        numberOfPeople.style.borderColor = '#f2f8fc';
-    }
+    inputs.forEach((input) => {
+        const isEmpty = !input.element.value || input.element.value === '0';
+        document.getElementById(input.errorText).style.display = isEmpty
+            ? 'block'
+            : 'none';
+        input.element.style.borderColor = isEmpty ? '#b58070' : '#f2f8fc';
+    });
 }
 
 /**
@@ -115,8 +107,6 @@ function calculateTotalPerPerson(tipPercentage) {
     let tipAmountPerPerson = tipAmount / numberOfPeople.value;
 
     displayIncrementalTip(tipAmountPerPerson, totalPerPerson);
-
-    console.log(totalPerPerson);
 
     return totalPerPerson;
 }
@@ -143,7 +133,6 @@ function displayIncrementalTip(tipValue, billPerPerson) {
  */
 function displayTipAmountPerPerson(tipPercentage) {
     calculateTotalPerPerson(tipPercentage);
-
     printTotalPerPersonByIndex(pressedIndex);
 }
 
@@ -153,19 +142,8 @@ function displayTipAmountPerPerson(tipPercentage) {
  * @returns {void} This function doesn't directly return a value, but prints the total bill per person to the console.
  */
 function printTotalPerPersonByIndex(index) {
-    if (index === 0) {
-        return calculateTotalPerPerson(0);
-    } else if (index === 1) {
-        return calculateTotalPerPerson(0.05);
-    } else if (index === 2) {
-        return calculateTotalPerPerson(0.1);
-    } else if (index === 3) {
-        return calculateTotalPerPerson(0.15);
-    } else if (index === 4) {
-        return calculateTotalPerPerson(0.25);
-    } else if (index === 5) {
-        return calculateTotalPerPerson(0.5);
-    }
+    const tipPercentages = [0, 0.05, 0.1, 0.15, 0.25, 0.5];
+    calculateTotalPerPerson(tipPercentages[index]);
 }
 
 // Iterates over each button in the "numberOfTips" array and adds an event listener to it.
@@ -179,7 +157,7 @@ numberOfTips.forEach((button, index) => {
 // Listens for the 'keydown' event on the amountBill input field to handle numeric input.
 // Calls the handleNumericInput function to validate and process numeric entries,
 // including the 'Backspace' key.
-amountBill[0].addEventListener('keydown', handleNumericInput);
+amountBill.addEventListener('keydown', handleNumericInput);
 
 // Listens for the 'click' event on the send button to handle error messages and print total bill per person.
 btnSend.addEventListener('click', function () {
@@ -187,6 +165,7 @@ btnSend.addEventListener('click', function () {
     printTotalPerPersonByIndex(pressedIndex);
 });
 
+// Listens for the 'click' event on the reset button to handle
 btnReset.addEventListener('click', function () {
     amountBill[0].value = '';
     numberOfPeople.value = '';
