@@ -167,7 +167,7 @@ btnSend.addEventListener('click', function () {
 
 // Listens for the 'click' event on the reset button to handle
 btnReset.addEventListener('click', function () {
-    amountBill[0].value = '';
+    amountBill.value = '';
     numberOfPeople.value = '';
 
     amountTipPerPerson.innerHTML = '$0.00';
