@@ -100,6 +100,17 @@ function handleErrorText() {
  * @returns {number} The bill per person after including the tip.
  */
 function calculateTotalPerPerson(tipPercentage) {
+    if (
+        isNaN(parseFloat(pressedNumber)) ||
+        parseFloat(pressedNumber) <= 0 ||
+        isNaN(parseInt(numberOfPeople.value)) ||
+        parseInt(numberOfPeople.value) <= 0
+    ) {
+        amountTipPerPerson.innerHTML = '$0.00';
+        totalBillPerPerson.innerHTML = '$0.00';
+        return 0;
+    }
+
     let totalBeforeTip = parseFloat(pressedNumber);
     let tipAmount = totalBeforeTip * tipPercentage;
     let totalWithTip = totalBeforeTip + tipAmount;
@@ -144,6 +155,9 @@ function displayTipAmountPerPerson(tipPercentage) {
 function printTotalPerPersonByIndex(index) {
     const tipPercentages = [0, 0.05, 0.1, 0.15, 0.25, 0.5];
     calculateTotalPerPerson(tipPercentages[index]);
+    // if (!tipPercentages) {
+    //     calculateTotalPerPerson(tipPercentages[index]);
+    // }
 }
 
 // Iterates over each button in the "numberOfTips" array and adds an event listener to it.
@@ -174,4 +188,16 @@ btnReset.addEventListener('click', function () {
     totalBillPerPerson.innerHTML = '$0.00';
 
     resetButtons();
+
+    pressedNumber = '';
+
+    const resetInputs = [
+        { element: amountBill, errorText: 'errorTextBill' },
+        { element: numberOfPeople, errorText: 'errorTextNumberOfPeople' },
+    ];
+
+    resetInputs.forEach((resetInput) => {
+        document.getElementById(resetInput.errorText).style.display = 'none';
+        resetInput.element.style.borderColor = '#f2f8fc';
+    });
 });
